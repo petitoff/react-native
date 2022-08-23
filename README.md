@@ -2,3 +2,6 @@
 
 ## Target Sum
 [Live preview](https://snack.expo.dev/@petitoff/targetsum)
+
+## Bake Sale
+[Live preview](https://snack.expo.dev/@petitoff/bakesale)
