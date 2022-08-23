@@ -21,6 +21,11 @@ class App extends React.Component {
       currentDealId: dealId,
     });
   };
+  unSetCurrentDealId = () => {
+    this.setState({
+      currentDealId: null,
+    });
+  };
 
   currentDeal = () => {
     return this.state.deals.find(
@@ -29,7 +34,12 @@ class App extends React.Component {
   };
   render() {
     if (this.state.currentDealId) {
-      return <DealDetail initialDealData={this.currentDeal()} />;
+      return (
+        <DealDetail
+          initialDealData={this.currentDeal()}
+          onBack={this.unSetCurrentDealId}
+        />
+      );
     }
     if (this.state.deals.length > 0) {
       return (
@@ -41,7 +51,7 @@ class App extends React.Component {
     }
     return (
       <View style={styles.container}>
-        <Text style={styles.header}>Bakesel</Text>
+        <Text style={styles.header}>Bake Sale</Text>
       </View>
     );
   }
