@@ -1,15 +1,15 @@
 # React Native Projects
 
 ## Target Sum
+
 ### [Live preview](https://snack.expo.dev/@petitoff/targetsum)
 
 Uses classes to create components
-``` js
+
+```js
 class App extends React.Component {
   render() {
-    return (
-      <View></View>
-    );
+    return <View></View>;
   }
 }
 
@@ -17,7 +17,8 @@ export default App;
 ```
 
 Props have PropTypes
-``` js
+
+```js
 static propTypes = {
   randomNumberCount: PropTypes.number.isRequired,
   initialSeconds: PropTypes.number.isRequired,
@@ -26,4 +27,9 @@ static propTypes = {
 ```
 
 ## Bake Sale
+
 [Live preview](https://snack.expo.dev/@petitoff/bakesale)
+
+## Navigation And Routers
+
+[Live preview](https://snack.expo.dev/@petitoff/navigationandroutes)
