@@ -17,8 +17,6 @@ class DealDetail extends React.Component {
 
   async componentDidMount() {
     const fullDeal = await ajax.fetchDealDetail(this.state.deal.key);
-    console.log(fullDeal);
-
     this.setState({ deal: fullDeal });
   }
 
@@ -56,7 +54,6 @@ const styles = StyleSheet.create({
   backLink: {
     fontSize: 19,
     color: '#22f',
-    marginTop: 50,
     marginBottom: 20,
     marginHorizontal: 15,
     textDecorationColor: 'none',

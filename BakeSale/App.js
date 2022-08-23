@@ -4,10 +4,12 @@ import { Text, View, StyleSheet } from 'react-native';
 import ajax from './components/ajax';
 import DealList from './components/DealList';
 import DealDetail from './components/DealDetail';
+import SearchBar from './components/SearchBar';
 
 class App extends React.Component {
   state = {
     deals: [],
+    dealsFromSearch: [],
     currentDealId: null,
   };
 
@@ -15,6 +17,14 @@ class App extends React.Component {
     const deals = await ajax.fetchInitialDeals();
     this.setState({ deals });
   }
+
+  searchDeals = async (searchTerm) => {
+    let dealsFromSearch = [];
+    if (searchTerm) {
+      dealsFromSearch = await ajax.fetchDealsSearchResults(searchTerm);
+    }
+    this.setState({ dealsFromSearch });
+  };
 
   setCurrentDealId = (dealId) => {
     this.setState({
@@ -35,18 +45,28 @@ class App extends React.Component {
   render() {
     if (this.state.currentDealId) {
       return (
-        <DealDetail
-          initialDealData={this.currentDeal()}
-          onBack={this.unSetCurrentDealId}
-        />
+        <View style={styles.main}>
+          <DealDetail
+            initialDealData={this.currentDeal()}
+            onBack={this.unSetCurrentDealId}
+          />
+        </View>
       );
     }
-    if (this.state.deals.length > 0) {
+    
+    const dealsToDisplay =
+      this.state.dealsFromSearch.length > 0
+        ? this.state.dealsFromSearch
+        : this.state.deals;
+    if (dealsToDisplay.length > 0) {
       return (
-        <DealList
-          deals={this.state.deals}
-          onItemPress={this.setCurrentDealId}
-        />
+        <View style={[styles.container, styles.main]}>
+          <SearchBar searchDeals={this.searchDeals} />
+          <DealList
+            deals={dealsToDisplay}
+            onItemPress={this.setCurrentDealId}
+          />
+        </View>
       );
     }
     return (
@@ -60,8 +80,12 @@ class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    margin: 0,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  main: {
+    marginTop: 40,
   },
   header: {
     fontSize: 40,
