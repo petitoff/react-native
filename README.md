@@ -33,3 +33,28 @@ static propTypes = {
 ## Navigation And Routers
 
 [Live preview](https://snack.expo.dev/@petitoff/navigationandroutes)
+
+Navigating Between Screens
+``` js
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+        />
+        <Stack.Screen
+          name="Details"
+          component={DetailsScreen}
+        />
+        <Stack.Screen
+          name="BigImageView"
+          component={ImageScreen}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+```
