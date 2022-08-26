@@ -8,6 +8,7 @@ import ManageExpense from './src/components/ManageExpense';
 import RecentExpenses from './src/components/RecentExpenses';
 import AllExpenses from './src/components/AllExpenses';
 import IconButton from './src/UI/IconButton';
+import ExpensesContextProvider from './src/store/expenses-context';
 
 import { GlobalStyles } from './src/constants/style';
 
@@ -65,7 +66,7 @@ export default function App() {
   return (
     <>
       <StatusBar style="auto" />
-
+      <ExpensesContextProvider>
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
@@ -86,6 +87,7 @@ export default function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
+      </ExpensesContextProvider>
     </>
   );
 }
