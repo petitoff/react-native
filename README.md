@@ -27,7 +27,6 @@ static propTypes = {
 ```
 
 ## Bake Sale
-
 [Live preview](https://snack.expo.dev/@petitoff/bakesale)
 
 ## Navigation And Routers
@@ -60,6 +59,7 @@ export default function App() {
 ```
 
 ## Expense Tracker
-
-
 [Live preview](https://snack.expo.dev/@petitoff/expense-tracker)
+
+## ts-navigation
+[Live preview](https://snack.expo.dev/@petitoff/ts-navigation)
