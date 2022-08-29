@@ -1,10 +1,11 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-import MemoList from './src/components/MemoList';
+import { StatusBar } from "expo-status-bar";
 
 const App = () => {
-  return <MemoList />
+  return (
+    <>
+      <StatusBar />
+    </>
+  );
 };
 
 export default App;
