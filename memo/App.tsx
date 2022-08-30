@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
+import RootNavigator from "./src/navigation/RootNavigator";
 
-const App = () => {
+export default function App() {
   return (
     <>
-      <StatusBar />
+      <RootNavigator />
+      <StatusBar style="auto" />
     </>
   );
-};
-
-export default App;
+}
