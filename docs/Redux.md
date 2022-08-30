@@ -81,7 +81,7 @@ export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector = () => TypedUseSelectorHook<RootState> = useSelector;
 ```
 
-## implementacja w komponencie
+## implementacja w komponencie z wykorzystaniem własnego `dispatch`
 ``` ts
 // getProducts() -> get products from api
 // receivedProducts() => action state
@@ -95,4 +95,28 @@ useEffect(() => {
 
 // get state
 const products = useAppSelector((state) => state.products.products);
+```
+
+## implementacja z wykorzystaniem `useDispatch`
+Jako, że niemamy zaimplementowanego w aplikacji dispatch oraz selector musimy to zrobić lokalnie.
+#### Importujemy potrzebne biblioteki
+``` ts
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store';
+```
+
+Następnie tworzymy instacje. Wybieramy z jakiego reduxa chcemy skorzystać.
+``` ts
+const dispatch = useDispatch();
+const screenSelector = useSelector((state: RootState) => state.numberSlice);
+```
+
+#### Odwołanie się do danych
+``` ts
+screenSelector.counter
+```
+
+#### Uruchomienie akcji
+``` ts
+dispatch(incrementCounter())
 ```
