@@ -2,19 +2,26 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import * as apiClient from '../../services/apiClient'
 
 export type User = {
-  name: string
+  name: {
+    first: string
+  }
+  picture: {
+    thumbnail: string
+  }
 }
 
 export type UserListState = {
   users: User[]
   loading: boolean
-  error: boolean
+  error: boolean | undefined
+  nextPage: number
 }
 
 const initialState: UserListState = {
   users: [],
   loading: false,
-  error: false,
+  error: true,
+  nextPage: 1,
 }
 
 export const fetchUsers = createAsyncThunk<{ users: User[] }, { page: number }>('fetchUsers', async ({ page }) => {
@@ -24,14 +31,30 @@ export const fetchUsers = createAsyncThunk<{ users: User[] }, { page: number }>(
       users: response.body ?? [],
     }
   } else {
-    throw 'error fetching users'
+    throw 'Error fetching users'
   }
 })
 
 const userListSlice = createSlice({
   name: 'userList',
-  initialState,
+  initialState: initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchUsers.pending, (state) => {
+        state.loading = true
+        state.error = undefined
+      })
+      .addCase(fetchUsers.fulfilled, (state, action) => {
+        state.nextPage += 1
+        state.users = state.users.concat(action.payload.users)
+        state.loading = false
+      })
+      .addCase(fetchUsers.rejected, (state) => {
+        state.error = true
+        state.loading = false
+      })
+  },
 })
 
 export default userListSlice.reducer
