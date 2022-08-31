@@ -1,5 +1,10 @@
 # Navigator
 
+## import
+``` ts
+import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
+```
+
 ## type
 Tworzymy `type` dla naszego navigatora. W tym przykładzie `screens` nie posiadają żadnych typów.
 ``` ts
@@ -7,6 +12,17 @@ export type RootStackParamList = {
     Home: undefined;
     Profile: undefined;
     Settings: undefined;
+};
+```
+
+Gdybyśmy chcieli przesłać jakiś parametr wraz z nawigacją to robimy to za pomocą `route` i ustawiamy typ tego parametru. W tym przypadku jeżeli przechodzimy do widoku `Settings` to wymagamy parametru `userId` o typie `number`.
+``` ts
+export type RootStackParamList = {
+  Home: undefined;
+  Profile: undefined;
+  Settings: {
+    userId: number;
+  };
 };
 ```
 
@@ -45,4 +61,9 @@ function ProfileScreen({ route, navigation } : ProfileProps) {
 Dzięki temu, że posiadamy parametr `navigation` możemy przemieszczać się po ekranach.
 ``` ts
 navigation.navigate('Settings')
+```
+
+Jeżeli wymagamy parametru podczas tej nawigacji to przesyłamy go za pomocą obiektu.
+``` ts
+navigation.navigate('Settings', {userId: 4});
 ```
