@@ -3,11 +3,11 @@
 [GO TO DOCS](https://github.com/petitoff/react-native/tree/main/docs)
 
 ## Redux
-- [redux](https://github.com/petitoff/react-native/tree/main/redux)
-- [redux-basic](https://github.com/petitoff/react-native/tree/main/redux-basic)
+- [redux](https://github.com/petitoff/react-native/tree/main/redux) -> [live](https://snack.expo.dev/@petitoff/github.com-petitoff-react-native:redux)
+- [redux-basic](https://github.com/petitoff/react-native/tree/main/redux-basic) -> [live](https://snack.expo.dev/@petitoff/redux-basic)
 
 # Navigation
-- [navigator-basic](https://github.com/petitoff/react-native/tree/main/navigator-basic)
+- [navigator-basic](https://github.com/petitoff/react-native/tree/main/navigator-basic) -> [live](https://snack.expo.dev/@petitoff/navigator-basic)
 
 # OLD
 ## Target Sum
