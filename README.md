@@ -1,7 +1,16 @@
 # React Native Projects
+## DOCS
+[GO TO DOCS](https://github.com/petitoff/react-native/tree/main/docs)
 
+## Redux
+- [redux](https://github.com/petitoff/react-native/tree/main/redux)
+- [redux-basic](https://github.com/petitoff/react-native/tree/main/redux-basic)
+
+# Navigation
+- [navigator-basic](https://github.com/petitoff/react-native/tree/main/navigator-basic)
+
+# OLD
 ## Target Sum
-
 ### [Live preview](https://snack.expo.dev/@petitoff/targetsum)
 
 Uses classes to create components
