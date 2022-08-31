@@ -31,7 +31,7 @@ Następnie tworzymy `stack`. Wybieramy jedną z dostępnych opcji np. `createNat
 ``` ts
 const Stack = createNativeStackNavigator<RootStackParamList>();
 ```
-Tworzymy navigator z dostępnych komponentów. `name` może być zdefiniowany taki jak w `RootStackParamList`.
+Tworzymy navigator z dostępnych komponentów. `name` ma być zdefiniowany taki jak w `RootStackParamList`.
 ``` ts
 <Stack.Navigator initialRouteName="Home">
     <Stack.Screen name="Home" component={() => HomeScreen} />
