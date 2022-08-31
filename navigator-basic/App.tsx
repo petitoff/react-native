@@ -1,4 +1,4 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -13,7 +13,7 @@ export type RootStackParamList = {
   Settings: undefined;
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (

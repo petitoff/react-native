@@ -2,7 +2,8 @@
 
 ## import
 ``` ts
-import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 ```
 
 ## type
@@ -29,9 +30,9 @@ export type RootStackParamList = {
 ## Stack
 Następnie tworzymy `stack`. Wybieramy jedną z dostępnych opcji np. `createNativeStackNavigator`. Dodajemy typ podczas tworzenia.
 ``` ts
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>();
 ```
-Tworzymy navigator z dostępnych komponentów. `name` może być zdefiniowany taki jak w `RootStackParamList`.
+Tworzymy navigator z dostępnych komponentów. `name` ma być zdefiniowany taki jak w `RootStackParamList`.
 ``` ts
 <Stack.Navigator initialRouteName="Home">
     <Stack.Screen name="Home" component={() => HomeScreen} />
