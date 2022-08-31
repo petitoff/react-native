@@ -28,7 +28,7 @@ export type RootStackParamList = {
 ```
 
 ## Stack
-Następnie tworzymy `stack`. Wybieramy jedną z dostępnych opcji np. `createNativeStackNavigator`. Dodajemy typ podczas tworzenia.
+Następnie tworzymy `stack`. Wybieramy jedną z dostępnych opcji np. `createStackNavigator`. Dodajemy typ podczas tworzenia.
 ``` ts
 const Stack = createStackNavigator<RootStackParamList>();
 ```
