@@ -7,11 +7,14 @@ type ProfileProps = NativeStackScreenProps<RootStackParamList, 'Profile'>;
 const HomeScreen = ({ route, navigation }: ProfileProps) => {
   return (
     <View style={styles.container}>
-      <Text>Test</Text>
+      <Text style={styles.textTitle}>Test</Text>
 
-      <Pressable onPress={() => navigation.navigate('Profile')}>
-        <Text>ProfileScreen</Text>
-      </Pressable>
+      <View style={styles.btn}>
+      <Text style={styles.textSmall}>{'Click -> '}</Text>
+        <Pressable onPress={() => navigation.navigate('Profile')}>
+          <Text style={styles.textSmall}>ProfileScreen</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -21,5 +24,14 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     marginTop: 30,
+  },
+  textTitle: {
+    fontSize: 30,
+  },
+  textSmall: {
+    fontSize: 20,
+  },
+  btn:{
+    flexDirection: 'row',
   }
-})
+});
